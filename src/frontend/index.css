@@ -419,3 +419,36 @@ h1, h2, h3 {
 .text-gold-dim  { color: var(--gold-dim); }
 .bg-gold        { background-color: var(--gold); }
 .border-gold    { border-color: var(--gold); }
+
+/* ============================================================
+   SCROLLBAR HIDE UTILITY
+   ============================================================ */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* ============================================================
+   MOBILE TOUCH IMPROVEMENTS
+   ============================================================ */
+@media (max-width: 640px) {
+  /* Increase tap targets on mobile */
+  .btn-gold, .btn-outline {
+    min-height: 48px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+  /* Improve form inputs on mobile */
+  .form-input {
+    font-size: 16px; /* prevents iOS zoom */
+  }
+
+  /* Better portfolio grid on small screens */
+  .portfolio-card {
+    height: 260px;
+  }
+}

@@ -59,7 +59,7 @@ export default function Footer() {
               </span>
             </p>
             <a
-              href="https://www.instagram.com/yourclickerstudiosp"
+              href="https://www.instagram.com/yourclickerstudios"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 mt-1 transition-colors duration-200"
@@ -74,7 +74,7 @@ export default function Footer() {
               }}
             >
               <Instagram size={14} />
-              @yourclickerstudiosp
+              @yourclickerstudios
             </a>
           </div>
 

@@ -12,7 +12,7 @@ export default function AboutSection() {
     >
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-28 items-center">
-          {/* Left: Tilted portrait with depth layers */}
+          {/* Left: Dual photo collage with depth layers */}
           <div className="reveal-left">
             <div className="relative" style={{ paddingBottom: "2rem" }}>
               {/* Back shadow layer — creates depth */}
@@ -33,7 +33,7 @@ export default function AboutSection() {
                   zIndex: 1,
                 }}
               />
-              {/* Main image — slight counter-tilt for editorial feel */}
+              {/* Main portrait image — slight counter-tilt */}
               <div
                 style={{
                   transform: "rotate(-2.2deg)",
@@ -44,10 +44,10 @@ export default function AboutSection() {
               >
                 <img
                   src="/assets/generated/portfolio-portrait.dim_800x1000.jpg"
-                  alt="YourClickerStudios photographer"
+                  alt="YourClickerStudios portrait photography"
                   className="w-full object-cover block"
                   style={{
-                    maxHeight: "640px",
+                    maxHeight: "540px",
                     filter: "contrast(1.05) saturate(0.9)",
                   }}
                 />
@@ -59,6 +59,41 @@ export default function AboutSection() {
                       "radial-gradient(ellipse 90% 90% at 50% 40%, transparent 45%, oklch(0.04 0 0 / 0.55) 100%)",
                   }}
                 />
+              </div>
+
+              {/* Street photo overlay card — bottom right */}
+              <div
+                className="absolute z-[4] overflow-hidden border"
+                style={{
+                  bottom: "-20px",
+                  right: "-20px",
+                  width: "clamp(100px, 38%, 180px)",
+                  height: "clamp(130px, 50%, 230px)",
+                  transform: "rotate(2.5deg)",
+                  borderColor: "oklch(0.70 0.155 68 / 0.4)",
+                  boxShadow: "0 12px 40px oklch(0 0 0 / 0.55)",
+                }}
+              >
+                <img
+                  src="/assets/generated/portfolio-street-1.dim_800x1000.jpg"
+                  alt="YourClickerStudios street photography"
+                  className="w-full h-full object-cover"
+                  style={{ filter: "contrast(1.08) saturate(0.85)" }}
+                />
+                <div
+                  className="absolute bottom-0 left-0 right-0 px-2 py-1.5"
+                  style={{
+                    background:
+                      "linear-gradient(to top, oklch(0.04 0 0 / 0.9), transparent)",
+                  }}
+                >
+                  <span
+                    className="text-[8px] tracking-[0.25em] uppercase font-semibold"
+                    style={{ color: "var(--gold)" }}
+                  >
+                    Street
+                  </span>
+                </div>
               </div>
 
               {/* Floating stat badge */}
@@ -168,7 +203,7 @@ export default function AboutSection() {
 
             {/* Instagram CTA — minimal, precise */}
             <a
-              href="https://www.instagram.com/yourclickerstudiosp"
+              href="https://www.instagram.com/yourclickerstudios"
               target="_blank"
               rel="noopener noreferrer"
               data-ocid="about.link"
@@ -198,7 +233,7 @@ export default function AboutSection() {
                   className="text-sm font-medium transition-colors duration-300 group-hover:text-gold"
                   style={{ color: "var(--cream)" }}
                 >
-                  @yourclickerstudiosp
+                  @yourclickerstudios
                 </p>
               </div>
             </a>

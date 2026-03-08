@@ -5,7 +5,7 @@
     <title>YourClickerStudios — Photography &amp; Videography Studio</title>
     <meta
       name="description"
-      content="YourClickerStudios is a full-service creative photography and videography studio. Portraits, weddings, commercial, and film production. @yourclickerstudiosp"
+      content="YourClickerStudios is a full-service creative photography and videography studio. Portraits, weddings, commercial, and film production. @yourclickerstudios"
     />
     <meta property="og:title" content="YourClickerStudios — Visual Storytellers" />
     <meta
@@ -17,9 +17,15 @@
     <meta name="twitter:title" content="YourClickerStudios" />
     <meta
       name="twitter:description"
-      content="Cinematic photography and videography studio. Follow @yourclickerstudiosp"
+      content="Cinematic photography and videography studio. Follow @yourclickerstudios"
     />
     <meta name="theme-color" content="#0a0a08" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="YCS" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/assets/generated/app-icon.dim_512x512.png" />
     <style>
       /* Critical: prevent FOUC */
       html { background-color: #0a0a08; color-scheme: dark; }
@@ -28,5 +34,12 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(() => {});
+        });
+      }
+    </script>
   </body>
 </html>

@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import HeroSection from "./components/HeroSection";
 import InstagramBand from "./components/InstagramBand";
 import Navigation from "./components/Navigation";
+import PhotoStrip from "./components/PhotoStrip";
 import PortfolioSection from "./components/PortfolioSection";
 import ServicesSection from "./components/ServicesSection";
 import { useActor } from "./hooks/useActor";
@@ -28,6 +29,7 @@ export default function App() {
       <main>
         <HeroSection />
         <PortfolioSection />
+        <PhotoStrip />
         <ServicesSection />
         <AboutSection />
         <InstagramBand />

@@ -6,40 +6,61 @@ const portfolioItems = [
     id: 1,
     image: "/assets/generated/portfolio-portrait.dim_800x1000.jpg",
     title: "Portraits",
-    category: "Photography",
+    category: "Portrait",
     tall: true,
   },
   {
     id: 2,
-    image: "/assets/generated/portfolio-landscape.dim_800x600.jpg",
-    title: "Landscapes",
-    category: "Photography",
-    tall: false,
+    image: "/assets/generated/portfolio-street-1.dim_800x1000.jpg",
+    title: "Street Noir",
+    category: "Street",
+    tall: true,
   },
   {
     id: 3,
+    image: "/assets/generated/portfolio-portrait-2.dim_800x1000.jpg",
+    title: "Editorial Portrait",
+    category: "Portrait",
+    tall: false,
+  },
+  {
+    id: 4,
+    image: "/assets/generated/portfolio-street-2.dim_800x600.jpg",
+    title: "Urban Life",
+    category: "Street",
+    tall: false,
+  },
+  {
+    id: 5,
     image: "/assets/generated/portfolio-wedding.dim_800x600.jpg",
     title: "Weddings",
     category: "Videography",
     tall: false,
   },
   {
-    id: 4,
+    id: 6,
     image: "/assets/generated/portfolio-videography.dim_800x600.jpg",
     title: "Film Production",
     category: "Videography",
     tall: false,
   },
   {
-    id: 5,
+    id: 7,
     image: "/assets/generated/portfolio-commercial.dim_800x600.jpg",
     title: "Commercial",
-    category: "Photography",
+    category: "Portrait",
+    tall: false,
+  },
+  {
+    id: 8,
+    image: "/assets/generated/portfolio-landscape.dim_800x600.jpg",
+    title: "Landscapes",
+    category: "Street",
     tall: false,
   },
 ];
 
-type FilterType = "All" | "Photography" | "Videography";
+type FilterType = "All" | "Portrait" | "Street" | "Videography";
 
 export default function PortfolioSection() {
   useScrollReveal();
@@ -109,7 +130,7 @@ export default function PortfolioSection() {
 
         {/* Filter tabs */}
         <div className="flex gap-2 mb-12 reveal">
-          {(["All", "Photography", "Videography"] as FilterType[]).map(
+          {(["All", "Portrait", "Street", "Videography"] as FilterType[]).map(
             (filter) => (
               <button
                 type="button"

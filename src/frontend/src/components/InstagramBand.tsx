@@ -76,7 +76,7 @@ export default function InstagramBand() {
             letterSpacing: "-0.01em",
           }}
         >
-          @yourclickerstudiosp
+          @yourclickerstudios
         </p>
 
         <p
@@ -88,7 +88,7 @@ export default function InstagramBand() {
         </p>
 
         <a
-          href="https://www.instagram.com/yourclickerstudiosp"
+          href="https://www.instagram.com/yourclickerstudios"
           target="_blank"
           rel="noopener noreferrer"
           data-ocid="instagram.primary_button"

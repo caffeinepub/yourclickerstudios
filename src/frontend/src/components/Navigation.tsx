@@ -105,7 +105,7 @@ export default function Navigation() {
                 </a>
               ))}
               <a
-                href="https://www.instagram.com/yourclickerstudiosp"
+                href="https://www.instagram.com/yourclickerstudios"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-colors duration-200"
@@ -180,7 +180,7 @@ export default function Navigation() {
             </a>
           ))}
           <a
-            href="https://www.instagram.com/yourclickerstudiosp"
+            href="https://www.instagram.com/yourclickerstudios"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 mt-2"
@@ -191,7 +191,7 @@ export default function Navigation() {
             }}
           >
             <Instagram size={14} />
-            @yourclickerstudiosp
+            @yourclickerstudios
           </a>
         </div>
       </div>
