@@ -1,0 +1,421 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   TYPOGRAPHY — Playfair Display for display, Outfit for body
+   Loaded via CSS @import for network availability
+   ============================================================ */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=Outfit:wght@300;400;500;600&display=swap");
+
+/* ============================================================
+   DESIGN TOKENS — YourClickerStudios
+   Cinematic dark theme: near-black, warm gold, cool silver
+   ============================================================ */
+@layer base {
+  :root {
+    --radius: 0.15rem;
+
+    /* ---- Core palette (OKLCH raw L C H) ---- */
+    --background: 0.07 0.006 48;          /* near-black, faint warm tint      */
+    --foreground: 0.93 0.012 78;          /* off-white cream                  */
+
+    --card: 0.10 0.007 50;
+    --card-foreground: 0.93 0.012 78;
+
+    --popover: 0.12 0.008 50;
+    --popover-foreground: 0.93 0.012 78;
+
+    /* Primary = gold — used ONLY for focal CTAs and key accents */
+    --primary: 0.70 0.155 68;             /* rich amber-gold                  */
+    --primary-foreground: 0.07 0.006 48;
+
+    --secondary: 0.14 0.008 50;
+    --secondary-foreground: 0.82 0.012 78;
+
+    --muted: 0.16 0.008 50;
+    --muted-foreground: 0.52 0.010 78;
+
+    --accent: 0.75 0.160 70;
+    --accent-foreground: 0.07 0.006 48;
+
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    --border: 0.20 0.010 52;
+    --input: 0.18 0.010 52;
+    --ring: 0.70 0.155 68;
+
+    --chart-1: 0.70 0.155 68;
+    --chart-2: 0.60 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+
+    --sidebar: 0.10 0.007 50;
+    --sidebar-foreground: 0.93 0.012 78;
+    --sidebar-primary: 0.70 0.155 68;
+    --sidebar-primary-foreground: 0.07 0.006 48;
+    --sidebar-accent: 0.14 0.008 50;
+    --sidebar-accent-foreground: 0.82 0.012 78;
+    --sidebar-border: 0.20 0.010 52;
+    --sidebar-ring: 0.70 0.155 68;
+
+    /* ---- Studio-specific design tokens ---- */
+    --gold:        oklch(0.70 0.155 68);
+    --gold-bright: oklch(0.80 0.170 70);
+    --gold-dim:    oklch(0.50 0.110 66);
+    --gold-glow:   oklch(0.70 0.155 68 / 0.30);
+
+    --ink:   oklch(0.07 0.006 48);
+    --ink-2: oklch(0.10 0.007 50);
+    --ink-3: oklch(0.14 0.008 50);
+    --ink-4: oklch(0.18 0.010 52);
+
+    --cream:       oklch(0.93 0.012 78);
+    --silver:      oklch(0.60 0.008 78);
+    --silver-dim:  oklch(0.42 0.007 78);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Outfit", "Trebuchet MS", system-ui, sans-serif;
+    background-color: oklch(0.07 0.006 48);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+/* ============================================================
+   TYPOGRAPHY UTILITIES
+   ============================================================ */
+.font-display {
+  font-family: "Playfair Display", Georgia, serif;
+  font-feature-settings: "kern" 1, "liga" 1;
+}
+
+/* Prevent FOUC on hero title before font loads */
+h1, h2, h3 {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+/* ============================================================
+   SCROLL REVEAL ANIMATIONS
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(52px);
+  transition:
+    opacity 0.90s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.90s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-64px);
+  transition:
+    opacity 0.95s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.95s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(64px);
+  transition:
+    opacity 0.95s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.95s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ============================================================
+   FILM GRAIN OVERLAY
+   ============================================================ */
+@keyframes filmGrain {
+  0%,100% { transform: translate(0, 0); }
+  10%  { transform: translate(-2%, -3%); }
+  20%  { transform: translate(3%, 2%); }
+  30%  { transform: translate(-1%, 4%); }
+  40%  { transform: translate(4%, -1%); }
+  50%  { transform: translate(-3%, 1%); }
+  60%  { transform: translate(2%, -4%); }
+  70%  { transform: translate(-4%, 3%); }
+  80%  { transform: translate(1%, -2%); }
+  90%  { transform: translate(3%, 4%); }
+}
+
+.film-grain::after {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.12'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  animation: filmGrain 0.4s steps(1) infinite;
+  pointer-events: none;
+  z-index: 4;
+  opacity: 0.55;
+  mix-blend-mode: screen;
+}
+
+/* ============================================================
+   HERO ENTRANCE ANIMATIONS
+   ============================================================ */
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(36px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(10px); }
+}
+
+@keyframes lineDraw {
+  from { width: 0; opacity: 0; }
+  to   { width: 64px; opacity: 0.7; }
+}
+
+.hero-label   { animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both; }
+.hero-line    { animation: lineDraw  0.70s cubic-bezier(0.16, 1, 0.3, 1) 0.45s both; }
+.hero-title-1 { animation: heroFadeUp 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.55s both; }
+.hero-title-2 { animation: heroFadeUp 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.75s both; }
+.hero-subtitle { animation: heroFadeUp 0.90s cubic-bezier(0.16, 1, 0.3, 1) 0.95s both; }
+.hero-ctas    { animation: heroFadeUp 0.90s cubic-bezier(0.16, 1, 0.3, 1) 1.15s both; }
+.hero-scroll  {
+  animation:
+    heroFadeUp 0.90s cubic-bezier(0.16, 1, 0.3, 1) 1.5s both,
+    scrollBounce 2.4s ease-in-out 2.2s infinite;
+}
+
+/* ============================================================
+   PORTFOLIO CARD HOVER
+   ============================================================ */
+.portfolio-card .card-overlay {
+  transform: translateY(100%);
+  transition: transform 0.50s cubic-bezier(0.16, 1, 0.3, 1);
+  background: linear-gradient(
+    to top,
+    oklch(0.05 0.006 48 / 0.97) 0%,
+    oklch(0.05 0.006 48 / 0.75) 45%,
+    transparent 100%
+  );
+}
+.portfolio-card:hover .card-overlay {
+  transform: translateY(0);
+}
+
+.portfolio-card img {
+  transition: transform 0.70s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.portfolio-card:hover img {
+  transform: scale(1.08);
+}
+
+.portfolio-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border: 1px solid transparent;
+  transition: border-color 0.35s ease;
+  pointer-events: none;
+}
+.portfolio-card:hover::before {
+  border-color: oklch(0.70 0.155 68 / 0.45);
+}
+
+/* ============================================================
+   CTA BUTTON STATES
+   ============================================================ */
+.btn-gold {
+  background-color: var(--gold);
+  color: var(--ink);
+  box-shadow: 0 4px 28px oklch(0.70 0.155 68 / 0.30);
+  transition:
+    background-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.20s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.btn-gold:hover {
+  background-color: var(--gold-bright);
+  box-shadow: 0 6px 36px oklch(0.70 0.155 68 / 0.50);
+  transform: translateY(-2px) scale(1.02);
+}
+.btn-gold:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 2px 12px oklch(0.70 0.155 68 / 0.25);
+}
+
+.btn-outline {
+  border: 1px solid oklch(0.93 0.012 78 / 0.55);
+  color: var(--cream);
+  background: transparent;
+  backdrop-filter: blur(4px);
+  transition:
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    transform 0.20s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.btn-outline:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: oklch(0.70 0.155 68 / 0.06);
+  transform: translateY(-2px) scale(1.02);
+}
+.btn-outline:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* ============================================================
+   SERVICE CARD HOVER
+   ============================================================ */
+.service-card {
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.35s ease;
+}
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow:
+    0 0 0 1px oklch(0.70 0.155 68 / 0.35),
+    0 24px 64px oklch(0 0 0 / 0.65),
+    0 0 48px oklch(0.70 0.155 68 / 0.12);
+  border-color: oklch(0.70 0.155 68 / 0.55);
+}
+
+.service-icon-wrap {
+  transition:
+    background-color 0.30s ease,
+    box-shadow 0.30s ease;
+}
+.service-card:hover .service-icon-wrap {
+  background-color: oklch(0.70 0.155 68 / 0.08);
+  box-shadow: 0 0 20px oklch(0.70 0.155 68 / 0.20);
+}
+
+/* ============================================================
+   GOLD UNDERLINE ACCENT
+   ============================================================ */
+.section-title::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold) 0%, var(--gold-dim) 100%);
+  margin-top: 14px;
+  border-radius: 1px;
+}
+.section-title.centered::after {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+.nav-scrolled {
+  background: oklch(0.07 0.006 48 / 0.92) !important;
+  backdrop-filter: blur(16px) saturate(1.3);
+  -webkit-backdrop-filter: blur(16px) saturate(1.3);
+  border-bottom: 1px solid oklch(0.20 0.010 52 / 0.8);
+  box-shadow: 0 4px 32px oklch(0 0 0 / 0.5);
+}
+
+/* ============================================================
+   CINEMATIC WIDESCREEN BARS
+   ============================================================ */
+.cinema-bar {
+  background: oklch(0.03 0 0);
+}
+
+/* ============================================================
+   CONTACT FORM INPUTS
+   ============================================================ */
+.form-input {
+  background: oklch(0.10 0.007 50 / 0.6);
+  border: 1px solid oklch(0.20 0.010 52);
+  color: var(--cream);
+  transition:
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+.form-input::placeholder {
+  color: oklch(0.42 0.007 78);
+}
+.form-input:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: oklch(0.10 0.007 50 / 0.9);
+  box-shadow: 0 0 0 3px oklch(0.70 0.155 68 / 0.12),
+              inset 0 0 0 0 transparent;
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: oklch(0.07 0.006 48); }
+::-webkit-scrollbar-thumb {
+  background: oklch(0.70 0.155 68 / 0.40);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.70 0.155 68 / 0.70);
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal-left, .reveal-right {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .hero-label, .hero-line, .hero-title-1, .hero-title-2,
+  .hero-subtitle, .hero-ctas, .hero-scroll {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .film-grain::after { animation: none; }
+}
+
+/* ============================================================
+   UTILITY TOKENS
+   ============================================================ */
+.text-gold      { color: var(--gold); }
+.text-gold-dim  { color: var(--gold-dim); }
+.bg-gold        { background-color: var(--gold); }
+.border-gold    { border-color: var(--gold); }
